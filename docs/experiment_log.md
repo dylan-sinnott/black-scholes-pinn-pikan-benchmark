@@ -1,13 +1,12 @@
-# (Example of what this might look like)
-# 2025-05-28
+# 13/06/2026
 
-Implemented analytical Black-Scholes.
+## Progress
+- Created Github repository.
+- Created project structure.
+- Read through "From PINNs to PIKANs."
+- Skimmed "Physics Informed Deep Learning" (Raissi et al.)
 
-Results:
-- Prices match textbook examples.
-
-Issues:
-- Need to verify boundary conditions.
-
-Next Steps:
-- Begin Crank-Nicolson implementation.
+## Next steps
+- Read "Physics Informed Deep Learning" (Raissi et al.)
+- Read up on FDMs, specifically Crank-Nicholson.
+- Read literature applying PIML techniques to the Black-Scholes equation.

@@ -10,3 +10,13 @@
 - Read "Physics Informed Deep Learning" (Raissi et al.)
 - Read up on FDMs, specifically Crank-Nicholson.
 - Read literature applying PIML techniques to the Black-Scholes equation.
+
+# 14/06/2026
+
+## Progress
+- Read "Physics Informed Deep Learning"
+
+## Next steps
+- Read up on FDMs, specifically Crank-Nicholson.
+- Read literature applying PIML techniques to the Black-Scholes equation.
+- Create README

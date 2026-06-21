@@ -32,3 +32,13 @@
 ## Next steps
 - Implement analytical Black-Scholes solution.
 - Implement Crank-Nicolson solver.
+
+# 21/06/2026
+
+## Progress
+- Implemented call_price and put_price functions.
+- Tested these in a notebook by verifying put-call parity and generating a price surface.
+
+## Next steps.
+- Implement Crank-Nicolson solver.
+- Test the Crank-Nicolson solver: generate convergence plots, error plots, verify boundary conditions etc.

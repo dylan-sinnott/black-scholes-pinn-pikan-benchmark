@@ -42,3 +42,11 @@
 ## Next steps.
 - Implement Crank-Nicolson solver.
 - Test the Crank-Nicolson solver: generate convergence plots, error plots, verify boundary conditions etc.
+
+# 30/06/2026
+
+## Progress
+- Implemented Crank-Nicolson solver. 
+
+## Next steps
+- Test the Crank-Nicolson solver: generate convergence plots, error plots, verify boundary conditions etc.

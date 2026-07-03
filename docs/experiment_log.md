@@ -50,3 +50,16 @@
 
 ## Next steps
 - Test the Crank-Nicolson solver: generate convergence plots, error plots, verify boundary conditions etc.
+
+# 03/07/2026
+
+## Progress
+- Tested the Crank-Nicolson solver.
+- Created metrics.py and plotting.py.
+- Created pinn.py and implemented a basic PINN.
+- Created pinn.ipynb, trained the PINN on one parameter set and created a loss plot. 
+
+## Next steps
+- Generate PINN predictions over a grid of stock prices and times to maturity. 
+- Compare PINN output to analytical Black-Scholes prices. Generate PINN price and error plots and a metrics table with RMSE, MAE, maximum absolute error, relative L2 error.
+- Tune PINN training. 

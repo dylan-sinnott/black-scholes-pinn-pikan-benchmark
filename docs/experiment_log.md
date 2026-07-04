@@ -63,3 +63,15 @@
 - Generate PINN predictions over a grid of stock prices and times to maturity. 
 - Compare PINN output to analytical Black-Scholes prices. Generate PINN price and error plots and a metrics table with RMSE, MAE, maximum absolute error, relative L2 error.
 - Tune PINN training. 
+
+
+# 04/07/2026
+
+## Progress
+- Tuned PINN output.
+- Created PIKAN.
+- Did a basic comparison between Crank-Nicolson, PINNs and PIKANs.
+
+## Next steps
+- Build a standard benchmarking function.
+- Run some market parameter sensitivity testing.

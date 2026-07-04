@@ -2,7 +2,16 @@ import numpy as np
 
 
 def _to_arrays(y_pred, y_true):
-    return np.asarray(y_pred), np.asarray(y_true)
+    y_pred = np.asarray(y_pred, dtype=float)
+    y_true = np.asarray(y_true, dtype=float)
+
+    if y_pred.shape != y_true.shape:
+        raise ValueError(
+            f"Shape mismatch: y_pred has shape {y_pred.shape}, "
+            f"but y_true has shape {y_true.shape}"
+        )
+
+    return y_pred, y_true
 
 
 def mse(y_pred, y_true):
@@ -44,18 +53,7 @@ def error_summary(y_pred, y_true):
     }
 
 def relative_error(y_pred, y_true):
-    """
-    Computes the relative error between predicted and true values.
-
-    Parameters:
-    - y_pred: Array of predicted values.
-    - y_true: Array of true values.
-
-    Returns:
-    - Relative error as a float.
-    """
     y_pred, y_true = _to_arrays(y_pred, y_true)
-    
-    # Avoid division by zero
+
     eps = 1e-8
-    relative_error = np.abs(y_pred - y_true) / np.maximum(np.abs(y_true), eps)
+    return np.abs(y_pred - y_true) / np.maximum(np.abs(y_true), eps)

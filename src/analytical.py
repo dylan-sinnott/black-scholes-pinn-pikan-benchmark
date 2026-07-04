@@ -1,61 +1,39 @@
-"""
-This file includes functions call_price() and put_price() to calculate the price of a European call and put option
-using the Black-Scholes formula.
- """
+# analytical.py
 
 import numpy as np
-import scipy.stats
+from scipy.stats import norm
 
-def call_price(S0, K, T, r, sigma):
-    """
-    Calculate the price of a European call option using the Black-Scholes formula.
 
-    Parameters:
-    S0 : float
-        Current stock price
-    K : float
-        Strike price of the option
-    T : float
-        Time to expiration in years
-    r : float
-        Risk-free interest rate (annualized)
-    sigma : float
-        Volatility of the underlying stock (annualized)
+def call_price(S0, tau, K, r, sigma):
+    S = np.asarray(S0, dtype=float)
+    tau = np.asarray(tau, dtype=float)
 
-    Returns:
-    float
-        Price of the European call option
-    """
-    d1 = (np.log(S0 / K) + (r + 0.5 * sigma ** 2) * T) / (sigma * np.sqrt(T))
-    d2 = d1 - sigma * np.sqrt(T)
+    S, tau = np.broadcast_arrays(S, tau)
 
-    call_price = S0 * scipy.stats.norm.cdf(d1) - K * np.exp(-r * T) * scipy.stats.norm.cdf(d2)
+    price = np.zeros_like(S, dtype=float)
 
-    return call_price
+    expiry = tau <= 1e-12
+    price[expiry] = np.maximum(S[expiry] - K, 0.0)
 
-def put_price(S0, K, T, r, sigma):
-    """
-    Calculate the price of a European put option using the Black-Scholes formula.
+    valid = (tau > 1e-12) & (S > 0)
 
-    Parameters:
-    S0 : float
-        Current stock price
-    K : float
-        Strike price of the option
-    T : float
-        Time to expiration in years
-    r : float
-        Risk-free interest rate (annualized)
-    sigma : float
-        Volatility of the underlying stock (annualized)
+    S_valid = S[valid]
+    tau_valid = tau[valid]
 
-    Returns:
-    float
-        Price of the European put option
-    """
-    d1 = (np.log(S0 / K) + (r + 0.5 * sigma ** 2) * T) / (sigma * np.sqrt(T))
-    d2 = d1 - sigma * np.sqrt(T)
+    d1 = (
+        np.log(S_valid / K)
+        + (r + 0.5 * sigma**2) * tau_valid
+    ) / (sigma * np.sqrt(tau_valid))
 
-    put_price = K * np.exp(-r * T) * scipy.stats.norm.cdf(-d2) - S0 * scipy.stats.norm.cdf(-d1)
+    d2 = d1 - sigma * np.sqrt(tau_valid)
 
-    return put_price
+    price[valid] = (
+        S_valid * norm.cdf(d1)
+        - K * np.exp(-r * tau_valid) * norm.cdf(d2)
+    )
+
+    return price
+
+
+def black_scholes_call_grid(S0, tau, K, r, sigma):
+    return call_price(S0, tau, K, r, sigma)

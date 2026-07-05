@@ -1,0 +1,6 @@
+Model,Architecture,Scheduler,Loss,Epochs,Runtime (s),Runtime per Epoch (s),MSE,RMSE,MAE,Max Abs Error,Relative L2 Error
+Baseline PINN,"[2, 32, 32, 32, 1]",No,Standard,5000,51.9,0.01038,0.250624,0.500623,0.363268,4.505993,0.00518
+Wider PINN,"[2, 64, 64, 64, 1]",No,Standard,5000,71.1,0.01422,0.482299,0.694477,0.562019,5.379873,0.007186
+Wider PINN + LR Scheduler,"[2, 64, 64, 64, 1]",StepLR,Standard,5000,65.0,0.013,1.9639,1.401392,0.992939,7.813058,0.0145
+Wider PINN + Lr Scheduler + Modified Loss,"[2, 64, 64, 64, 1]",StepLR,Weighted IC,5000,95.9,0.01918,0.267159,0.516874,0.447378,3.750791,0.005348
+Baseline PINN + Modified Loss,"[2, 32, 32, 32, 1]",No,Weighted IC,5000,55.7,0.01114,0.220308,0.46937,0.387819,3.454764,0.004857

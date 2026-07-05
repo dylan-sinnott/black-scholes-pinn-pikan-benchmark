@@ -1,0 +1,4 @@
+Method,Architecture / Grid,Trainable Parameters,Epochs,Training Points,Evaluation Grid,Runtime (s),Runtime per Epoch (s),MSE,RMSE,MAE,Max Abs Error,Relative L2 Error
+Crank-Nicolson,"M=100, N=100",0,N/A,N/A,100 x 50,0.51,N/A,9.6e-05,0.009815,0.003887,0.129387,0.000102
+Baseline PINN + Modified Loss,"[2, 32, 32, 32, 1], Weighted IC",2241,5000,"N_f=500, N_ic=200, N_bc=200",100 x 50,55.1,0.01102,0.220308,0.46937,0.387819,3.454764,0.004857
+PIKAN,"[2, 16, 16, 1], grid=5, degree=3",4256,3000,"N_f=300, N_ic=150, N_bc=150",100 x 50,282.4,0.941333,0.003373,0.058075,0.033826,1.629618,0.000601

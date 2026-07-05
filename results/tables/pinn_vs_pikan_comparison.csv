@@ -1,0 +1,4 @@
+Model,Architecture,Epochs,Runtime (s),Runtime per Epoch (s),MSE,RMSE,MAE,Max Abs Error,Relative L2 Error,Scheduler,Loss
+Baseline PINN + Modified Loss,"[2, 32, 32, 32, 1]",5000,55.7,0.01114,0.220308,0.46937,0.387819,3.454764,0.004857,No,Weighted IC
+PIKAN,"[2, 16, 16, 1], grid=5, degree=3",3000,282.4,0.09413,0.003373,0.058075,0.033826,1.629618,0.000601,No,Standard physics-informed loss
+PIKAN (1000 epochs),"[2, 16, 16, 1], grid=5, degree=3",1000,84.9,0.0849,0.082062,0.286464,0.204735,3.646942,0.002964,No,Standard physics-informed loss

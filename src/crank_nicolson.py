@@ -105,3 +105,32 @@ class Crank_Nicolson_Solver:
 
     def interpolate_price(self):
         return np.interp(self.S0, self.S, self.V)
+    
+    # Defining a function that evaluates the Crank-Nicolson method over a surface.
+
+def evaluate_crank_nicolson_surface(S_eval, tau_eval, K, r, sigma, S_max, M=320, N=320):
+    V_cn_surface = np.zeros((len(S_eval), len(tau_eval)))
+
+    for j, tau in enumerate(tau_eval):
+        if tau <= 1e-12:
+            V_cn_surface[:, j] = np.maximum(S_eval - K, 0.0)
+            continue
+
+        solver = Crank_Nicolson_Solver(
+            S0=100,
+            K=K,
+            T=float(tau),
+            r=r,
+            sigma=sigma,
+            S_max=S_max,
+            M=M,
+            N=N
+        )
+
+        _, S_cn, V_cn = solver.solve()
+
+        V_cn_surface[:, j] = np.interp(S_eval, S_cn, V_cn)
+
+    return V_cn_surface
+
+

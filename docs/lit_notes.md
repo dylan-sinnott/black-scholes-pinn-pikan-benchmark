@@ -59,9 +59,16 @@ This study compares PINNs and PIKANs using state-of-the-art optimisation techniq
 
 **Residual based attention:** Addresses the issue of the residuals potentially getting overlooked when calculating the cumulative loss function. Scaling the loss terms using local multipliers (particularly residual-based attention weights, which are based on the exponentially weighted moving average of the residuals) balances the contribution of individual training points within each loss term introducing "residual homogeneity." The update rule for RBA for any training point i on iteration k is: 
 
-$$\alpha_i^{k+1} ← (1-\eta^\*)\alpha_i^k + \eta^\* \frac{|e_i|}{|e|_{\infty}}$$
+$$
+\alpha_i^{k+1}
+=
+(1-\eta^*)\alpha_i^k
++
+\eta^*
+\frac{|e_i|}{\|e\|_{\infty}}
+$$
 
-where $e_i$ is the residual of each respective loss term for point i, $\eta^\*$ is the learning rate.
+where $e_i$ is the residual at point $i$, $\eta^*$ is the learning rate, and $\|e\|_{\infty}$ is the maximum absolute residual.
 
 ## Advantages of KANs
 Showed promise in rectifying MLP issues such as interpretability and catastrophic forgetting in supervised and unsupervised tasks.

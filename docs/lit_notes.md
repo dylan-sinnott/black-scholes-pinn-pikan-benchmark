@@ -144,7 +144,7 @@ $$V(S,T) = max(S-K,0)$$
 ## Boundary conditions
 $$V(0,t) = 0, V(S_{max},t) = S_{max} - K e^{-r(T-t)}$$
 
-Here $S_{max}=4K$, large enough to ensure upper bound solution approaches theoretical asymptotic value.
+Here $S_{max}=3K$, large enough to ensure upper bound solution approaches theoretical asymptotic value.
 
 ## Computational domain
 Uniform spatial and temporal grid. $[0,S_{max}]$ is discretised into M uniformly spaced grid points with step size $\Delta S = \frac{S_{max}}{M}$. $[0, T]$ is split into N uniform time steps with step size $\Delta \tau = \frac{T}{N}$.

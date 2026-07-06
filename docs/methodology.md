@@ -13,6 +13,7 @@ Can modern PINN architectures compete with classical finite difference methods f
 
 - Relative L2 error
 - Max error
+- RMSE
 - Runtime
 - Convergence speed
 
@@ -21,9 +22,9 @@ Can modern PINN architectures compete with classical finite difference methods f
 Volatility:
 0.1
 0.2
+0.3
 0.4
 
 Maturity:
-0.5
 1.0
-2.0
+

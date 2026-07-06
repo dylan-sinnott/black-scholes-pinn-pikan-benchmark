@@ -2,9 +2,9 @@
 
 ## Overview
 
-This project compares classical numerical methods and scientific machine learning methods for solving option pricing partial differential equations.
+This project compares classical numerical methods with physics-informed machine learning methods for solving option pricing partial differential equations.
 
-The main case study is the European call option under the Black-Scholes model, where an analytical solution is available. This allows the numerical and neural network methods to be benchmarked against a known exact solution.
+The main case study is a European call option under the Black-Scholes model. Since the Black-Scholes equation has an analytical solution for European options, it provides a controlled benchmark for comparing numerical and neural network methods.
 
 The methods implemented are:
 
@@ -13,13 +13,13 @@ The methods implemented are:
 - Physics-Informed Neural Network (PINN)
 - Physics-Informed Kolmogorov-Arnold Network (PIKAN)
 
-The project compares the methods in terms of accuracy, error behaviour, runtime and robustness under changes in volatility.
+The methods are compared in terms of accuracy, error behaviour, runtime and sensitivity to changes in volatility.
 
 ## Research Question
 
 Can physics-informed neural network architectures provide competitive accuracy or efficiency compared with traditional finite difference methods for option pricing PDEs?
 
-More specifically, this project investigates the accuracy-runtime tradeoff between Crank-Nicolson, PINNs and PIKANs when applied to the Black-Scholes PDE.
+More specifically, this project investigates the accuracy-runtime trade-off between Crank-Nicolson, PINNs and PIKANs when applied to the Black-Scholes PDE.
 
 ## Mathematical Model
 
@@ -35,7 +35,7 @@ rS \frac{\partial V}{\partial S}
 rV.
 $$
 
-The terminal payoff condition is
+The payoff condition is
 
 $$
 V(S,0) = \max(S-K,0).
@@ -47,7 +47,7 @@ The analytical Black-Scholes formula is used as the benchmark solution.
 
 ### Analytical Black-Scholes Solution
 
-The closed-form Black-Scholes call option price is used as the ground truth for evaluating numerical and neural network approximations.
+The closed-form Black-Scholes call option price is used as the reference solution for evaluating the numerical and neural network approximations.
 
 ### Crank-Nicolson Method
 
@@ -59,7 +59,7 @@ A PINN is trained to approximate the option price by minimizing a loss function 
 
 ### Physics-Informed Kolmogorov-Arnold Network
 
-A PIKAN architecture is implemented using the same Black-Scholes PDE residual and boundary/initial condition structure as the PINN. Its performance is compared against the PINN and Crank-Nicolson methods.
+A PIKAN is implemented using the same physics-informed loss structure as the PINN, but with a Kolmogorov-Arnold Network architecture. Its performance is compared against both the baseline PINN and the Crank-Nicolson method.
 
 ## Evaluation Metrics
 
@@ -72,11 +72,21 @@ The following metrics are used to compare model predictions against the analytic
 - Relative L2 Error
 - Runtime / training time
 
+## Key Findings
+
+The Crank-Nicolson method achieved the best accuracy-runtime trade-off for the one-dimensional Black-Scholes problem. It produced very low errors with substantially shorter runtime than the neural network methods.
+
+The baseline PINN was able to learn the general shape of the Black-Scholes price surface, but its errors were larger than those of the Crank-Nicolson method.
+
+The PIKAN improved substantially on the baseline PINN in terms of accuracy, but required longer training time. It did not outperform Crank-Nicolson in this controlled one-dimensional setting.
+
+Overall, the results suggest that physics-informed neural networks are flexible PDE solvers, but for this classical Black-Scholes problem, traditional finite difference methods remain more efficient.
+
 ## Sensitivity Analysis
 
 A volatility sensitivity analysis is performed by varying the volatility parameter while keeping the other Black-Scholes parameters fixed.
 
-This is used to test whether the relative performance of Crank-Nicolson, PINN and PIKAN methods remains stable across different volatility regimes.
+This tests whether the relative performance of Crank-Nicolson, PINN and PIKAN methods remains stable across different volatility regimes.
 
 ## Repository Structure
 
@@ -87,12 +97,12 @@ docs/
 notebooks/
     Analytical, Crank-Nicolson, PINN, PIKAN, comparison and sensitivity analysis notebooks
 
-src/
-    Core implementations for analytical pricing, finite difference solvers,
-    neural network models, loss functions, metrics and evaluation utilities    
-
 report/
-    Final report, figures and written analysis
+    Final report, figures and LaTeX source
 
 results/
-    Figures, tables.
+    Saved figures and tables
+
+src/
+    Core implementations for analytical pricing, finite difference solvers,
+    neural network models, loss functions, metrics and evaluation utilities

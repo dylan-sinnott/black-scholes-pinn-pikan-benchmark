@@ -25,19 +25,19 @@ More specifically, this project investigates the accuracy-runtime trade-off betw
 
 The Black-Scholes PDE for a European call option is written in time-to-maturity form as
 
-$$
+```math
 \frac{\partial V}{\partial \tau}
 =
 \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 V}{\partial S^2}
 + rS \frac{\partial V}{\partial S}
 - rV.
-$$
+```
 
 The payoff condition is
 
-$$
-V(S,0) = \max(S-K,0).
-$$
+```math
+V(S,0)=\max(S-K,0).
+```
 
 The analytical Black-Scholes formula is used as the benchmark solution.
 

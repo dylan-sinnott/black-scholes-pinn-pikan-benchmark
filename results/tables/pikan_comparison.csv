@@ -1,0 +1,3 @@
+Method,Architecture / Grid,Trainable Parameters,Epochs,Training Points,Runtime (s),Runtime per Epoch (s),MSE,RMSE,MAE,Max Abs Error,Relative L2 Error
+PIKAN (1000 epochs),"[2, 16, 16, 1], grid=5, degree=3",4256,1000,"N_f=300, N_ic=150, N_bc=150",88.1,0.0081,0.082062,0.286464,0.204735,3.646942,0.002964
+PIKAN,"[2, 16, 16, 1], grid=5, degree=3",4256,3000,"N_f=300, N_ic=150, N_bc=150",257.6,0.08587,0.003373,0.058075,0.033826,1.629618,0.000601

@@ -73,5 +73,17 @@
 - Did a basic comparison between Crank-Nicolson, PINNs and PIKANs.
 
 ## Next steps
-- Build a standard benchmarking function.
 - Run some market parameter sensitivity testing.
+
+# 05/07/2026
+
+## Progress
+- Tuned PIKAN
+- Ran sensitivity analysis
+
+# 06/07/2026
+
+## Progress
+- Finalised figures and tables
+- Wrote report
+- Polished README

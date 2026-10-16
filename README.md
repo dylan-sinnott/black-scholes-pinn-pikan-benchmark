@@ -86,6 +86,16 @@ A volatility sensitivity analysis is performed by varying the volatility paramet
 
 This tests whether the relative performance of Crank-Nicolson, PINN and PIKAN methods remains stable across different volatility regimes.
 
+## Conference talk
+
+Selected for presentation at **PyCon Ireland 2026**, Dublin,
+21 November 2026.
+
+**Talk:** “Can Machine-Learning Models beat Classical Option Pricing?”
+
+The talk presents this project's comparison of Crank–Nicolson,
+PINN and PIKAN methods for Black–Scholes option pricing.
+
 ## Repository Structure
 
 ```text
@@ -104,3 +114,4 @@ results/
 src/
     Core implementations for analytical pricing, finite difference solvers,
     neural network models, loss functions, metrics and evaluation utilities
+

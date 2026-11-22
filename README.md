@@ -88,12 +88,12 @@ This tests whether the relative performance of Crank-Nicolson, PINN and PIKAN me
 
 ## Conference talk
 
-Selected for presentation at **PyCon Ireland 2026**, Dublin,
+Presented at **PyCon Ireland 2026**, Dublin,
 21 November 2026.
 
 **Talk:** “Can Machine-Learning Models beat Classical Option Pricing?”
 
-The talk presents this project's comparison of Crank–Nicolson,
+The talk presented this project's comparison of Crank–Nicolson,
 PINN and PIKAN methods for Black–Scholes option pricing.
 
 ## Repository Structure
